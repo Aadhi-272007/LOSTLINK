@@ -1,0 +1,104 @@
+{
+  "name": "Report",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "lost",
+        "found"
+      ],
+      "description": "Whether the item was lost or found"
+    },
+    "title": {
+      "type": "string",
+      "description": "Short name of the item"
+    },
+    "description": {
+      "type": "string",
+      "description": "Details that help identify it"
+    },
+    "category": {
+      "type": "string",
+      "description": "Item category"
+    },
+    "location": {
+      "type": "string",
+      "description": "Where it was lost or found"
+    },
+    "holding_location": {
+      "type": "string",
+      "description": "Where a found item is currently kept"
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the item was lost or found"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Public photo of the item"
+    },
+    "contact_name": {
+      "type": "string",
+      "description": "Private contact name"
+    },
+    "contact_email": {
+      "type": "string",
+      "description": "Private contact email"
+    },
+    "contact_phone": {
+      "type": "string",
+      "description": "Private contact phone"
+    },
+    "management_code": {
+      "type": "string",
+      "description": "Private code that gives the reporter control of this report"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "hidden",
+        "removed",
+        "returned",
+        "withdrawn"
+      ],
+      "default": "active",
+      "description": "Lifecycle status of the report"
+    }
+  },
+  "required": [
+    "kind",
+    "title",
+    "description",
+    "category",
+    "location",
+    "occurred_at",
+    "contact_name",
+    "contact_email",
+    "management_code"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

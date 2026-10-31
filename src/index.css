@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 214 40% 98%;
+    --foreground: 215 45% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 45% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 45% 12%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 32% 95%;
+    --secondary-foreground: 215 45% 16%;
+    --muted: 214 32% 96%;
+    --muted-foreground: 215 16% 44%;
+    --accent: 217 91% 96%;
+    --accent-foreground: 221 83% 38%;
+    --destructive: 4 74% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 158 64% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 42%;
+    --warning-foreground: 0 0% 100%;
+    --border: 214 25% 90%;
+    --input: 214 25% 90%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+    --chart-1: 221 83% 53%;
+    --chart-2: 158 64% 36%;
+    --chart-3: 38 92% 42%;
+    --chart-4: 215 45% 30%;
+    --chart-5: 217 91% 66%;
+    --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sidebar-background: 214 40% 97%;
+    --sidebar-foreground: 215 45% 20%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 214 32% 94%;
+    --sidebar-accent-foreground: 215 45% 16%;
+    --sidebar-border: 214 25% 90%;
+    --sidebar-ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 218 40% 7%;
+    --foreground: 214 32% 96%;
+    --card: 218 34% 11%;
+    --card-foreground: 214 32% 96%;
+    --popover: 218 34% 11%;
+    --popover-foreground: 214 32% 96%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 218 44% 8%;
+    --secondary: 218 28% 16%;
+    --secondary-foreground: 214 32% 96%;
+    --muted: 218 28% 16%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 218 30% 18%;
+    --accent-foreground: 217 91% 80%;
+    --destructive: 4 74% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 158 64% 48%;
+    --success-foreground: 218 44% 8%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 218 44% 8%;
+    --border: 218 24% 20%;
+    --input: 218 24% 20%;
+    --ring: 217 91% 60%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 158 64% 48%;
+    --chart-3: 38 92% 55%;
+    --chart-4: 214 32% 70%;
+    --chart-5: 221 83% 72%;
+    --sidebar-background: 218 40% 9%;
+    --sidebar-foreground: 214 32% 92%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 218 44% 8%;
+    --sidebar-accent: 218 28% 16%;
+    --sidebar-accent-foreground: 214 32% 96%;
+    --sidebar-border: 218 24% 20%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+
+  ::selection {
+    @apply bg-primary/15;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fade-in-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .d1 {
+    animation-delay: 60ms;
+  }
+
+  .d2 {
+    animation-delay: 120ms;
+  }
+
+  .d3 {
+    animation-delay: 180ms;
+  }
+
+  .d4 {
+    animation-delay: 240ms;
+  }
+
+  .transition-smooth {
+    transition:
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s ease,
+      border-color 0.3s ease,
+      background-color 0.3s ease,
+      color 0.15s ease;
+  }
+
+  .transition-fast {
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease,
+      opacity 0.15s ease;
+  }
+
+  .hero-wash {
+    background-image:
+      radial-gradient(60% 60% at 15% 0%, hsl(var(--primary) / 0.1), transparent 70%),
+      radial-gradient(50% 50% at 90% 10%, hsl(var(--accent) / 0.9), transparent 70%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

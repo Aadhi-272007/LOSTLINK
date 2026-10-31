@@ -1,0 +1,86 @@
+{
+  "name": "Claim",
+  "type": "object",
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "description": "Found report being claimed"
+    },
+    "report_title": {
+      "type": "string",
+      "description": "Title copied for easy review"
+    },
+    "claimant_name": {
+      "type": "string"
+    },
+    "claimant_email": {
+      "type": "string"
+    },
+    "claimant_phone": {
+      "type": "string"
+    },
+    "proof": {
+      "type": "string",
+      "description": "How the claimant proves the item is theirs"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "disputed"
+      ],
+      "default": "pending"
+    },
+    "review_note": {
+      "type": "string",
+      "description": "Staff note shown to the claimant"
+    },
+    "return_code": {
+      "type": "string",
+      "description": "Single-use code issued when a claim is approved"
+    },
+    "return_code_expires_at": {
+      "type": "string",
+      "description": "ISO timestamp after which the return code stops working"
+    },
+    "return_code_used": {
+      "type": "boolean",
+      "default": false
+    },
+    "decided_at": {
+      "type": "string",
+      "description": "ISO timestamp of the decision"
+    }
+  },
+  "required": [
+    "report_id",
+    "claimant_name",
+    "claimant_email",
+    "proof",
+    "status"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
